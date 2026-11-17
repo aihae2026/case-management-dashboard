@@ -1,0 +1,19 @@
+# 집·회사·Lovable 간 줄바꿈(CRLF/LF) 차이로 인한 불필요한 변경·충돌 방지.
+# 모든 텍스트 파일은 저장소에 LF로 저장되고, 체크아웃 시에도 LF로 유지된다.
+* text=auto eol=lf
+
+# 바이너리로 취급 (줄바꿈 변환 금지)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.pdf binary
+
+# 락파일은 diff 노이즈 최소화
+bun.lock -diff

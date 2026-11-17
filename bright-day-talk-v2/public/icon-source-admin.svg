@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- 흑백 필터 -->
+  <defs>
+    <filter id="grayscale">
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#grayscale)">
+    <!-- 배경 원형 프레임 -->
+    <circle cx="256" cy="256" r="256" fill="#E8DDD4"/>
+    <circle cx="256" cy="256" r="248" fill="#F5EDE5"/>
+
+    <!-- 머리카락 (뒤쪽) -->
+    <ellipse cx="256" cy="210" rx="148" ry="138" fill="#2D3561"/>
+
+    <!-- 얼굴 -->
+    <ellipse cx="256" cy="285" rx="108" ry="118" fill="#FDDCB5"/>
+
+    <!-- 머리카락 옆면 -->
+    <ellipse cx="154" cy="278" rx="46" ry="80" fill="#2D3561"/>
+    <ellipse cx="358" cy="278" rx="46" ry="80" fill="#2D3561"/>
+
+    <!-- 머리카락 위 덮기 -->
+    <ellipse cx="256" cy="195" rx="132" ry="100" fill="#2D3561"/>
+
+    <!-- 귀 -->
+    <ellipse cx="152" cy="286" rx="20" ry="24" fill="#FDDCB5"/>
+    <ellipse cx="360" cy="286" rx="20" ry="24" fill="#FDDCB5"/>
+
+    <!-- 눈 흰자 -->
+    <ellipse cx="222" cy="275" rx="18" ry="20" fill="white"/>
+    <ellipse cx="290" cy="275" rx="18" ry="20" fill="white"/>
+
+    <!-- 눈동자 -->
+    <ellipse cx="224" cy="278" rx="11" ry="13" fill="#2C2C3E"/>
+    <ellipse cx="292" cy="278" rx="11" ry="13" fill="#2C2C3E"/>
+
+    <!-- 눈 반짝임 -->
+    <circle cx="229" cy="273" r="4" fill="white"/>
+    <circle cx="297" cy="273" r="4" fill="white"/>
+
+    <!-- 볼터치 -->
+    <ellipse cx="196" cy="308" rx="28" ry="18" fill="#F4A0A0" opacity="0.45"/>
+    <ellipse cx="316" cy="308" rx="28" ry="18" fill="#F4A0A0" opacity="0.45"/>
+
+    <!-- 코 -->
+    <ellipse cx="256" cy="302" rx="5" ry="4" fill="#E8B090" opacity="0.7"/>
+
+    <!-- 미소 -->
+    <path d="M 228 325 Q 256 348 284 325" stroke="#C07860" stroke-width="5" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

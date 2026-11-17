@@ -1,0 +1,164 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system for the elderly companion chat app.
+ * Warm cream background + deep navy text for maximum readability and contrast.
+ * All colors use oklch. Font sizing is intentionally large and scalable.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-bot-bubble: var(--bot-bubble);
+  --color-bot-bubble-foreground: var(--bot-bubble-foreground);
+  --color-user-bubble: var(--user-bubble);
+  --color-user-bubble-foreground: var(--user-bubble-foreground);
+  --color-mic: var(--mic);
+  --color-mic-foreground: var(--mic-foreground);
+  --color-mic-active: var(--mic-active);
+  --color-quick: var(--quick);
+  --color-quick-foreground: var(--quick-foreground);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-chat-bg: var(--chat-bg);
+
+  --font-sans:
+    "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1.25rem;
+
+  --background: oklch(0.977 0.024 91);
+  --foreground: oklch(0.29 0.055 262);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.29 0.055 262);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.29 0.055 262);
+
+  --primary: oklch(0.64 0.17 38);
+  --primary-foreground: oklch(0.99 0.01 90);
+  --secondary: oklch(0.94 0.035 86);
+  --secondary-foreground: oklch(0.29 0.055 262);
+  --muted: oklch(0.95 0.02 88);
+  --muted-foreground: oklch(0.48 0.04 262);
+  --accent: oklch(0.93 0.05 84);
+  --accent-foreground: oklch(0.29 0.055 262);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.99 0.01 90);
+  --border: oklch(0.88 0.03 86);
+  --input: oklch(0.88 0.03 86);
+  --ring: oklch(0.64 0.17 38);
+
+  /* Chat-specific tokens — 카카오톡 스타일 */
+  --brand: oklch(0.36 0.06 262);
+  --brand-foreground: oklch(0.99 0.01 90);
+  --bot-bubble: oklch(1 0 0);
+  --bot-bubble-foreground: oklch(0.22 0.05 262);
+  /* 사용자 말풍선: 카카오톡 노랑 */
+  --user-bubble: oklch(0.88 0.18 97);
+  --user-bubble-foreground: oklch(0.22 0.04 80);
+  --chat-bg: oklch(0.93 0.018 91);  /* 채팅 영역 배경 */
+  --mic: oklch(0.64 0.18 34);
+  --mic-foreground: oklch(0.99 0.01 90);
+  --mic-active: oklch(0.55 0.23 25);
+  --quick: oklch(1 0 0);
+  --quick-foreground: oklch(0.3 0.055 262);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html,
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior: none;
+  }
+
+  /* iOS PWA: 탭 회색 플래시 제거 + 300ms 딜레이 제거 */
+  button,
+  a,
+  [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+}
+
+@keyframes soft-pop {
+  0% {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes mic-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--mic-active) 55%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 18px color-mix(in oklab, var(--mic-active) 0%, transparent);
+  }
+}
+
+@keyframes typing-dot {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+}
+
+@keyframes avatar-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1.5deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(1.5deg);
+  }
+}

@@ -1,0 +1,12 @@
+-- Fix: 회원가입/온보딩 시 기관 생성이 "permission denied for function gen_join_code"로
+-- 실패하는 문제 복구.
+--
+-- 원인: 직전 보안 마이그레이션(20260709082836)이 gen_join_code() 의 EXECUTE 를
+-- authenticated 에서 회수했다. 하지만 gen_join_code() 는 organizations.join_code 컬럼의
+-- DEFAULT 로 걸려 있어, 온보딩에서 authenticated 사용자가 organizations 에 INSERT 할 때
+-- "그 사용자 권한으로" 평가된다. 따라서 authenticated 에게 EXECUTE 가 필요하다.
+--
+-- gen_join_code() 는 8자리 랜덤 코드를 생성할 뿐(민감 데이터 접근·권한 상승 없음)이라
+-- authenticated 에게 노출해도 안전하다. 트리거/RLS 로만 쓰이는 나머지 헬퍼
+-- (handle_new_user, assign_org_role, touch_updated_at 등)의 회수는 그대로 유지한다.
+GRANT EXECUTE ON FUNCTION public.gen_join_code() TO authenticated;

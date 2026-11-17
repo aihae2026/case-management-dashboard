@@ -1,0 +1,19 @@
+AI 챌린지 해 — 통합 사례관리 대시보드 · 복순이(맑은날톡)
+Copyright 2026 시립중랑노인종합복지관
+
+이 저장소는 두 개의 앱(ai-case-management-v2, bright-day-talk-v2)으로 이루어져 있습니다.
+각 앱 폴더에도 같은 내용의 LICENSE·NOTICE가 있습니다.
+
+■ 라이선스 범위
+- 소스코드: Apache License, Version 2.0 (LICENSE 파일 참고)
+- 문서·프롬프트: Creative Commons Attribution 4.0 (CC BY 4.0)
+  README 등 문서와 AI 프롬프트 문구에 적용됩니다. 코드 안에 들어 있는 AI 프롬프트는 '문서·프롬프트'로
+  분류하므로, 같은 파일의 코드 부분에는 Apache-2.0이, 프롬프트 문구에는 CC BY 4.0이 함께 적용됩니다.
+- 발표자료는 NAVER Connect Foundation의 저작물이라 이 저장소에 포함하지 않으며 위 라이선스가 적용되지 않습니다.
+- 기관명, 서비스 이름, 로고를 사용할 권리는 위 라이선스에 포함되지 않습니다.
+
+■ 사용한 외부 오픈소스·자료
+이 프로젝트는 React, TanStack, Tailwind CSS, Supabase 클라이언트, Vercel AI SDK, pdf.js, SheetJS 등
+오픈소스 라이브러리를 사용하고, 날씨 안부 기능은 Open-Meteo(CC BY 4.0) 데이터를 사용합니다.
+각 라이브러리와 자료의 저작권과 라이선스는 해당 프로젝트의 것이며,
+사용 내역은 README 의 "외부 자료 및 오픈소스 사용 내역"에 정리되어 있습니다.
